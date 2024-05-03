@@ -1,0 +1,77 @@
+*{ 
+Margin:0;
+Padding:0;
+Box-sizing: border-box;
+Font-family: xyz;
+}
+
+/* Creating varibles in css learning this for the first time */
+:root{
+    --salmon:#EF9D71;
+    --black: #000;
+    --white: #fff;
+    --cyan: #AEDEE0;
+    --dsalmon: #532521;
+    --dcyan: #1f2f32;
+}
+
+
+/* another new property here wehre we can learn that wehenver we select thing it will not come in bluie color but come in red color */
+*::selection{
+    background-color: var(--salmon);
+}
+
+
+
+html,body{
+Width:100%;
+Height:100%;
+}
+
+@font-face {
+    font-family: 'new';
+    src: url('font1.ttf');
+}
+
+/* In this I have learnt how to change font on changing baackground bychanging  the them of an object which is pretty good as you can see  */
+body[theme="black"]{
+    background-color: var(--black);
+}
+
+body[theme="black"] .section{
+    color:var(--white)
+}
+
+
+
+
+body[theme="cyan"]{
+    background-color: var(--cyan);
+}
+
+
+body[theme="cyan"] .section{
+   color:var(--dcyan);
+}
+
+
+
+
+body[theme="salmon"]{
+    background-color: var(--salmon);
+}
+
+
+body[theme="salmon"] .section{
+    color: var(--dsalmon);
+}
+
+
+
+body[theme="white"]{
+    background-color: var(--whtie);
+}
+
+body[theme="white"] .section{
+    color: var(--black);
+}
