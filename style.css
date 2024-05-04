@@ -16,6 +16,9 @@ Font-family: xyz;
 }
 
 
+body{
+    transition: background-color ease-in-out 0.5s;
+}
 /* another new property here wehre we can learn that wehenver we select thing it will not come in bluie color but come in red color */
 *::selection{
     background-color: var(--salmon);
@@ -74,4 +77,10 @@ body[theme="white"]{
 
 body[theme="white"] .section{
     color: var(--black);
+}
+
+
+
+.vdodiv{
+    clip-path: circle(var(--clip) at 50% 50%);
 }
