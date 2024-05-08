@@ -8,6 +8,37 @@ let tl = gsap.timeline({
 
     },
 })
+// gsap.registerPlugin(ScrollTrigger, Draggable);
+
+var a=0;
+num={
+    var: a
+};
+
+
+function changeNumber() {
+    document.querySelector(".women_text").innerHTML = (num.var).toFixed();
+    };
+
+let tl1 =  
+gsap.timeline({
+    scrollTrigger:{
+        trigger:".women_text",
+        start: "0% 50%",
+        end:"80% 0",
+        // containerAnimation: scrollTween,
+        toggleActions: "restart none none reverse"
+
+}});
+
+tl1.to(".women_text",{
+textContent : 49,
+snap : {textContent : 1},
+duration : 1,
+
+ease: "none",
+onUpdate: changeNumber(),
+});
 
 
 function midPageAnimation(){
@@ -20,8 +51,11 @@ function midPageAnimation(){
         },
         xPercent: -300,
         ease: Power4,
-    })       
+        
+    })
 }
+
+
 
 function homepageAnimation(){
     //Herewe are doing same event together by passing the same flag sop that they occur at the same time
@@ -52,23 +86,36 @@ function homepageAnimation(){
 function teamAnimation(){
     document.querySelectorAll(".listelem")
     .forEach(function(el){
-        el.addEventListener("mousemove", function(dets){
+        el.addEventListener("mouseover", function(dets){
             //we will learn about gsap map range
             // details ke under clientX hota hai uske andr 
             
             gsap.to(this.querySelector(".picture"),{
                 opacity:1,
                 x:gsap.utils.mapRange(0, window.innerWidth, -200, 200, dets.clientX),
+                y:gsap.utils.mapRange(0,window.innerHeight, -100, 100, dets.clientY),
                 ease: Power4,
-                duration: 0.5
-            })
+                duration: 1,
+                
+            },'c')
+            gsap.to(this.querySelector(".bluelayer"),{
+                height: "100%",
+                ease:Power4,
+                duration: 1,
+            },'c')
         });
     
         el.addEventListener("mouseleave", function(dets){
             gsap.to(this.querySelector(".picture"),{
                 opacity:0,
                 ease: Power4,
-                duration: 0.5
+                duration: 0.5,
+                
+            })
+            gsap.to(this.querySelector(".bluelayer "),{
+                height: 0,
+                duration: 0.4,
+                ease:Power4,
             })
             });
         });
@@ -134,7 +181,7 @@ function bodyColorChange(){
     ScrollTrigger.create({
         trigger:e,
         top: "top 35%",
-        bottom: "bottom 35%",
+        bottom: "bottom 40%",
         onEnter: function(){
             document.body.setAttribute("theme",e.dataset.color)
         },
@@ -155,6 +202,3 @@ teamAnimation();
 paraAnimation();
 capsuleAnimation();
 bodyColorChange();
-
-
-
