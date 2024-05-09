@@ -8,7 +8,7 @@ let tl = gsap.timeline({
 
     },
 })
-// gsap.registerPlugin(ScrollTrigger, Draggable);
+
 
 var a=0;
 num={
@@ -18,27 +18,74 @@ num={
 
 function changeNumber() {
     document.querySelector(".women_text").innerHTML = (num.var).toFixed();
-    };
+};
 
-let tl1 =  
-gsap.timeline({
-    scrollTrigger:{
-        trigger:".women_text",
-        start: "0% 50%",
-        end:"80% 0",
-        // containerAnimation: scrollTween,
-        toggleActions: "restart none none reverse"
+function changeNumberMillionText(){
+    document.querySelector(".millionText").innerHTML = (num.var).toFixed();
+}
+function changeNumberNationalityText(){
+    document.querySelector(".nationalityText").innerHTML = (num.var).toFixed();
+}
 
-}});
+function textChanging(){
+        let tl1 =  
+    gsap.timeline({
+        scrollTrigger:{
+            trigger:".women_text",
+            start: "0% 50%",
+            end:"80% 0",
+            toggleActions: "restart none none reverse"
 
-tl1.to(".women_text",{
-textContent : 49,
-snap : {textContent : 1},
-duration : 1,
+    }});
 
-ease: "none",
-onUpdate: changeNumber(),
-});
+    tl1.to(".women_text",{
+    textContent : 49 + "%",
+    snap : {textContent : 1},
+    duration : 1.8,
+
+    ease: "none",
+    onUpdate: changeNumber(),
+    });
+
+
+    let tl2 =  
+    gsap.timeline({
+        scrollTrigger:{
+            trigger:".millionText",
+            start: "0% 50%",
+            end:"80% 0",
+            toggleActions: "restart none none reverse"
+
+    }});
+
+    tl2.to(".millionText",{
+        textContent : 20.4+ "M",
+        snap : {textContent : 1.2},
+        duration : 1.8,
+        
+        ease: "none",
+        onUpdate: changeNumberMillionText(),
+        });
+
+    let tl3 =  
+    gsap.timeline({
+        scrollTrigger:{
+            trigger:".nationalityText",
+            start: "0% 50%",
+            end:"80% 0",
+            toggleActions: "restart none none reverse"
+
+    }});
+
+    tl3.to(".nationalityText",{
+        textContent : 13,
+        snap : {textContent : 1},
+        duration : 2.7,
+        ease: "none",
+        onUpdate: changeNumberNationalityText(),
+        });
+
+}
 
 
 function midPageAnimation(){
@@ -202,3 +249,4 @@ teamAnimation();
 paraAnimation();
 capsuleAnimation();
 bodyColorChange();
+textChanging();
