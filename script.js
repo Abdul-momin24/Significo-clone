@@ -9,11 +9,29 @@ let tl = gsap.timeline({
     },
 })
 
-
-var a=0;
+let a =0;
 num={
     var: a
 };
+
+function topBannerTextSplitter(){
+    let topBanner = document.querySelector(".topBanner")
+
+    let bannertext = topBanner.textContent;
+
+    let splittedTextBanner = bannertext.split("");
+    clutter="";
+    splittedTextBanner.forEach(function(e){
+        if(e ==" "){
+            clutter +=" ";
+        }
+        else{
+            clutter += `<span>${e}</span>`;
+        }
+        
+    })
+    topBanner.innerHTML = clutter;
+}
 
 
 function changeNumber() {
@@ -126,6 +144,13 @@ function homepageAnimation(){
         stagger:0.03,
         ease:Power4,
     },'b')
+    .from(".topBanner span",{
+ 
+        opacity: 0,
+        stagger: 0.02,
+        ease:Power4,
+        scrub:2
+    },'b')
 }
 
 
@@ -171,32 +196,32 @@ function teamAnimation(){
 
 
 function paraAnimation(){
-var clutter="";
-document.querySelector(".texttpara")
-.textContent.split("")
-.forEach(function(e){
-    if(e == " "){
-        clutter+=`<span>&nbsp;</span>`
-    }else{
-    clutter +=`<span>${e}</span>`// span tag space nahi jod pata hai isliye if condition lagayenge
-    }
-    
-    document.querySelector(".texttpara").innerHTML=clutter;
-})
+    var clutter="";
+    document.querySelector(".texttpara")
+    .textContent.split("")
+    .forEach(function(e){
+        if(e == " "){
+            clutter+=`<span>&nbsp;</span>`
+        }else{
+        clutter +=`<span>${e}</span>`// span tag space nahi jod pata hai isliye if condition lagayenge
+        }
+        
+        document.querySelector(".texttpara").innerHTML=clutter;
+    })
 
-gsap.set(".texttpara span",{opacity: 0});
+    gsap.set(".texttpara span",{opacity: 0});
 
-gsap.to(".texttpara span", {
-    scrollTrigger:{
-        trigger:".para",
-        start:"top 60%",
-        end:"bottom 90%",
-        scrub:0.8
- },
-    opacity:1,
-    stagger:0.03,
-    ease: Power2
-});
+    gsap.to(".texttpara span", {
+        scrollTrigger:{
+            trigger:".para",
+            start:"top 60%",
+            end:"bottom 90%",
+            scrub:0.8
+    },
+        opacity:1,
+        stagger:0.03,
+        ease: Power2
+    });
 
 };
 
@@ -243,6 +268,7 @@ function bodyColorChange(){
 
 
 loco();
+topBannerTextSplitter();
 homepageAnimation();
 midPageAnimation();
 teamAnimation();

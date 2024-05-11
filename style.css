@@ -84,3 +84,7 @@ body[theme="white"] .section{
 .vdodiv{
     clip-path: circle(var(--clip) at 50% 50%);
 }
+
+.topBanner span{
+    display: inline-block;
+}
