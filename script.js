@@ -301,28 +301,28 @@ function craftAnimation(){
    tlCraft1.to(".card1",{
     width:"80%",
     backgroundColor :"#000",
-    color: "#fff",
+    color: "#AEDEE0", 
     stagger: 1,
     ease: Power4,
 });
     tlCraft2.to(".card2",{
         width:"80%",
         backgroundColor :"#000",
-        color: "#fff",
+        color: "#AEDEE0", 
         stagger: 1,
         ease: Power4,
 });
     tlCraft3.to(".card3",{
         width:"80%",
         backgroundColor :"#000",
-        color: "#fff",
+        color: "#AEDEE0", 
         stagger: 1,
         ease: Power4,
 });
     tlCraft4.to(".card4",{
         width:"80%",
         backgroundColor :"#000",
-        color: "#fff",
+        color: "#AEDEE0", 
         stagger: 1,
         ease: Power4,
 });
@@ -330,7 +330,7 @@ function craftAnimation(){
 
 }
 
-
+0
 
 
 

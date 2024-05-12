@@ -1,15 +1,13 @@
 *{ 
 Margin:0;
 Padding:0;
-Box-sizing: border-box;
-Font-family: xyz;
-}
+Box-sizing: border-box;}
 
 /* Creating varibles in css learning this for the first time */
 :root{
     --salmon:#EF9D71;
-    --black: #000;
-    --white: #fff;
+    --black: #000000;
+    --white: #ffffff;
     --cyan: #AEDEE0;
     --dsalmon: #532521;
     --dcyan: #1f2f32;
@@ -29,6 +27,7 @@ body{
 html,body{
 Width:100%;
 Height:100%;
+color: white
 }
 
 @font-face {
@@ -54,7 +53,7 @@ body[theme="cyan"]{
 
 
 body[theme="cyan"] .section{
-   color:var(--dcyan);
+   color:var(--black);
 }
 
 
