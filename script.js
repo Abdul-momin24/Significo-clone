@@ -5,14 +5,45 @@ let tl = gsap.timeline({
         start: "top top",
         end:"bottom bottom",
         scrub: 1,
-
     },
 })
+let tlCraft1 = gsap.timeline({
+    scrollTrigger:{
+    trigger:".card1",
+    start:"top 50%",
+    end:"bottom 80%",
+    scrub:2,
+    },});
+let tlCraft2 = gsap.timeline({
+    scrollTrigger:{
+    trigger:".card2",
+    start:"top 50%",
+    end:"bottom 80%",
+    scrub:2,
+    },})
+let tlCraft3 = gsap.timeline({
+    scrollTrigger:{
+    trigger:".card3",
+    start:"top 50%",
+    end:"bottom 80%",
+    scrub:2,
+    },})           
+let tlCraft4 = gsap.timeline({
+    scrollTrigger:{
+    trigger:".card4",
+    start:"top 50%",
+    end:"bottom 80%",
+    scrub:2,
+    },})       
 
 let a =0;
 num={
     var: a
 };
+
+
+
+
 
 function topBannerTextSplitter(){
     let topBanner = document.querySelector(".topBanner")
@@ -32,7 +63,6 @@ function topBannerTextSplitter(){
     })
     topBanner.innerHTML = clutter;
 }
-
 
 function changeNumber() {
     document.querySelector(".women_text").innerHTML = (num.var).toFixed();
@@ -60,10 +90,10 @@ function textChanging(){
     textContent : 49 + "%",
     snap : {textContent : 1},
     duration : 1.8,
-
     ease: "none",
     onUpdate: changeNumber(),
-    });
+    })
+    ;
 
 
     let tl2 =  
@@ -80,7 +110,6 @@ function textChanging(){
         textContent : 20.4+ "M",
         snap : {textContent : 1.2},
         duration : 1.8,
-        
         ease: "none",
         onUpdate: changeNumberMillionText(),
         });
@@ -266,9 +295,49 @@ function bodyColorChange(){
 }
 
 
+function craftAnimation(){
+
+
+   tlCraft1.to(".card1",{
+    width:"80%",
+    backgroundColor :"#000",
+    color: "#fff",
+    stagger: 1,
+    ease: Power4,
+});
+    tlCraft2.to(".card2",{
+        width:"80%",
+        backgroundColor :"#000",
+        color: "#fff",
+        stagger: 1,
+        ease: Power4,
+});
+    tlCraft3.to(".card3",{
+        width:"80%",
+        backgroundColor :"#000",
+        color: "#fff",
+        stagger: 1,
+        ease: Power4,
+});
+    tlCraft4.to(".card4",{
+        width:"80%",
+        backgroundColor :"#000",
+        color: "#fff",
+        stagger: 1,
+        ease: Power4,
+});
+
+
+}
+
+
+
+
+
 loco();
 topBannerTextSplitter();
 homepageAnimation();
+craftAnimation();
 midPageAnimation();
 teamAnimation();
 paraAnimation();
