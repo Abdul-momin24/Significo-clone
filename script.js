@@ -280,8 +280,9 @@ function bodyColorChange(){
     .forEach(function(e){
     ScrollTrigger.create({
         trigger:e,
-        top: "top 35%",
-        bottom: "bottom 40%",
+        top: "top 90%",
+        bottom: "bottom bottom",
+        markers:true,
         onEnter: function(){
             document.body.setAttribute("theme",e.dataset.color)
         },
@@ -329,9 +330,6 @@ function craftAnimation(){
 
 
 }
-
-0
-
 
 
 loco();
