@@ -84,7 +84,6 @@ function textChanging(){
         ease: "none",
         onUpdate: changeNumberMillionText(),
         });
-
     let tl3 =  
     gsap.timeline({
         scrollTrigger:{
@@ -249,7 +248,7 @@ function capsuleAnimation(){
 
 function bodyColorChange(){
     document.querySelectorAll(".section")
-.forEach(function(e){
+    .forEach(function(e){
     ScrollTrigger.create({
         trigger:e,
         top: "top 35%",
