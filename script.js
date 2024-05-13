@@ -13,36 +13,34 @@ let tlCraft1 = gsap.timeline({
     start:"top 50%",
     end:"bottom 80%",
     scrub:2,
-    },});
+},});
 let tlCraft2 = gsap.timeline({
     scrollTrigger:{
     trigger:".card2",
     start:"top 50%",
     end:"bottom 80%",
     scrub:2,
-    },})
+},})
 let tlCraft3 = gsap.timeline({
     scrollTrigger:{
     trigger:".card3",
     start:"top 50%",
     end:"bottom 80%",
     scrub:2,
-    },})           
+},})           
 let tlCraft4 = gsap.timeline({
     scrollTrigger:{
     trigger:".card4",
     start:"top 50%",
     end:"bottom 80%",
     scrub:2,
-    },})       
+},})       
 
-let a =0;
+
+let a = 0;
 num={
     var: a
 };
-
-
-
 
 
 function topBannerTextSplitter(){
@@ -282,12 +280,28 @@ function bodyColorChange(){
         trigger:e,
         top: "top 90%",
         bottom: "bottom bottom",
-        markers:true,
         onEnter: function(){
             document.body.setAttribute("theme",e.dataset.color)
         },
         onEnterBack: function(){
             document.body.setAttribute("theme",e.dataset.color)
+        }
+    })
+})
+}
+
+function navbarColorChange(){
+    document.querySelectorAll(".section")
+    .forEach(function(e){
+    ScrollTrigger.create({
+        trigger:e,
+        top: "top 40%",
+        bottom: "bottom bottom",
+        onEnter: function(){
+            document.querySelector(".navbar").setAttribute("theme",e.dataset.color)
+        },
+        onEnterBack: function(){
+            document.querySelector(".navbar").setAttribute("theme",e.dataset.color)
         }
     })
 })
@@ -332,7 +346,68 @@ function craftAnimation(){
 }
 
 
+function navbarAnimation(){
+    const navbarChild = document.querySelectorAll(".child")
+    clutter1="";
+    navbarChild.forEach(item => {
+        const letters = item.textContent.split('');
+        item.textContent = '';
+        letters.forEach(letter => {
+        const spans = document.createElement('span');
+        spans.textContent = letter;
+        item.appendChild(spans);
+        });
+        item.addEventListener('mouseenter', () => {
+            const spans = item.querySelectorAll('span');
+        
+            gsap.from(spans, {
+            duration: 0.3,
+            y: 20,
+            opacity:0,
+            stagger: 0.05,
+            ease: "power3.out",
+            onComplete: () => {
+                gsap.to(spans, {
+                duration: 0.3,
+                y: 0,
+                stagger: 0.05,
+                ease: "power3.out",
+                });
+            },
+            });
+        });
+        
+        item.addEventListener('mouseleave', () => {
+            const spans = item.querySelectorAll('span');
+        
+            gsap.from(spans, {
+            duration: 0.3,
+            y: -20,
+            stagger: 0.05,
+            ease: "power3.out",
+            onComplete: () => {
+                gsap.to(spans, {
+                duration: 0.3,
+                y: 0,
+                stagger: 0.05,
+                ease: "power3.out",
+            });
+          },
+        });
+      });
+    });
+
+// document.querySelector(".navbar").addEventListener("mouseenter",()=>{
+//     document.querySelector(".home").style.backgroundColor ="rgba(0, 0, 0, 0.63)"
+// })
+// document.querySelector(".navbar").addEventListener("mouseleave",()=>{
+//     document.querySelector(".home").style.backgroundColor =""
+
+}
+
+
 loco();
+navbarAnimation();
 topBannerTextSplitter();
 homepageAnimation();
 craftAnimation();
@@ -340,5 +415,6 @@ midPageAnimation();
 teamAnimation();
 paraAnimation();
 capsuleAnimation();
+navbarColorChange();
 bodyColorChange();
 textChanging();

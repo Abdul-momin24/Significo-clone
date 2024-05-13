@@ -27,7 +27,7 @@ body{
 html,body{
 Width:100%;
 Height:100%;
-color: white
+color: rgb(255, 255, 255)
 }
 
 @font-face {
@@ -44,6 +44,9 @@ body[theme="black"] .section{
     color:var(--white)
 }
 
+.navbar[theme="black"]{
+    color:var(--white)
+}
 
 
 
@@ -51,6 +54,9 @@ body[theme="cyan"]{
     background-color: var(--cyan);
 }
 
+.navbar[theme="cyan"]{
+    background-color: var(--cyan);
+}
 
 body[theme="cyan"] .section{
    color:var(--black);
@@ -64,6 +70,11 @@ body[theme="salmon"]{
 }
 
 
+.navbar[theme="salmon"]{
+    background-color: var(--salmon);
+}
+
+
 body[theme="salmon"] .section{
     color: var(--dsalmon);
 }
@@ -71,8 +82,13 @@ body[theme="salmon"] .section{
 
 
 body[theme="white"]{
-    background-color: var(--whtie);
+    background-color: var(--white);
 }
+
+.navbar[theme="white"]{
+    background-color: var(--white);
+}
+
 
 body[theme="white"] .section{
     color: var(--black);
@@ -82,8 +98,4 @@ body[theme="white"] .section{
 
 .vdodiv{
     clip-path: circle(var(--clip) at 50% 50%);
-}
-
-.topBanner span{
-    display: inline-block;
 }
