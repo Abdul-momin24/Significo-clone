@@ -397,17 +397,28 @@ function navbarAnimation(){
       });
     });
 
-// document.querySelector(".navbar").addEventListener("mouseenter",()=>{
-//     document.querySelector(".home").style.backgroundColor ="rgba(0, 0, 0, 0.63)"
-// })
-// document.querySelector(".navbar").addEventListener("mouseleave",()=>{
-//     document.querySelector(".home").style.backgroundColor =""
 
 }
+
+function navbarHoverEffect(){
+
+    document.querySelector(".navbar").addEventListener("mouseenter",()=>{
+        document.querySelectorAll(".blurring").forEach(function(e){
+            e.style.opacity= 0.2;})
+    })
+    
+    document.querySelector(".navbar").addEventListener("mouseleave",()=>{
+        document.querySelectorAll(".blurring").forEach(function(e){
+            e.style.opacity=1;
+    
+    })})
+}
+
 
 
 loco();
 navbarAnimation();
+navbarHoverEffect();
 topBannerTextSplitter();
 homepageAnimation();
 craftAnimation();
